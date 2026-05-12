@@ -1,0 +1,26 @@
+{
+  "workflow_id": "demo-workflow",
+  "name": "Demo AI Research Workflow",
+  "tasks": [
+    {
+      "task_id": "research",
+      "name": "Research topic",
+      "agent": "research",
+      "payload": {"topic": "AI monitoring"}
+    },
+    {
+      "task_id": "analysis",
+      "name": "Analyze findings",
+      "agent": "analysis",
+      "depends_on": ["research"],
+      "payload": {"source": "research"}
+    },
+    {
+      "task_id": "report",
+      "name": "Generate report",
+      "agent": "reporting",
+      "depends_on": ["analysis"],
+      "payload": {"sections": ["summary", "recommendations"]}
+    }
+  ]
+}
