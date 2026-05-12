@@ -10,10 +10,11 @@ Production-ready workflow orchestration platform for AI automation systems, supp
 - Run status tracking
 - FastAPI orchestration API
 - CLI demo and workflow execution commands
-- JSON workflow examples
+- JSON workflow example
 - Docker and Docker Compose deployment
 - GitHub Actions CI
 - Pytest test suite
+- Architecture and deployment documentation
 
 ## Quickstart
 
@@ -33,8 +34,20 @@ curl -X POST http://localhost:8000/workflows/run \
   -d @sample_workflow.json
 ```
 
+## Docker
+
+```bash
+docker-compose up --build
+```
+
+## Docs
+
+- `ARCHITECTURE.md`
+- `DEPLOYMENT.md`
+- `sample_workflow.json`
+
 ## Portfolio Highlights
 
 - Demonstrates autonomous workflow orchestration and production API design
 - Useful for agent systems, AI automation, ETL pipelines, and business process automation
-- Strong foundation for queues, retries, schedules, human approvals, and distributed workers
+- Strong foundation for queues, retries, schedules, human approvals, distributed workers, and LangGraph-style orchestration
