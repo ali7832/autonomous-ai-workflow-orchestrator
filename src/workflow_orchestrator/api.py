@@ -1,17 +1,17 @@
 from fastapi import FastAPI
 
-from workflow_orchestrator.executor import WorkflowExecutor
-from workflow_orchestrator.schemas import Workflow, WorkflowRun
+from workflow_orchestrator.schemas import HealthResponse, Workflow, WorkflowRun
+from workflow_orchestrator.service import WorkflowOrchestrationService
 
-app = FastAPI(title='Autonomous AI Workflow Orchestrator')
-_executor = WorkflowExecutor()
+app = FastAPI(title='Autonomous AI Workflow Orchestrator', version='0.2.0')
+_service = WorkflowOrchestrationService()
 
 
-@app.get('/health')
-def health() -> dict:
-    return {'status': 'ok'}
+@app.get('/health', response_model=HealthResponse)
+def health() -> HealthResponse:
+    return _service.health()
 
 
 @app.post('/workflows/run', response_model=WorkflowRun)
 def run_workflow(workflow: Workflow) -> WorkflowRun:
-    return _executor.run(workflow)
+    return _service.run(workflow)
