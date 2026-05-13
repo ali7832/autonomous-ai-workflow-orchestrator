@@ -1,20 +1,23 @@
 # Autonomous AI Workflow Orchestrator
 
-Production-ready workflow orchestration platform for AI automation systems, supporting task definitions, dependency-aware execution, agent assignment, workflow runs, APIs, CLI workflows, Docker, CI, and tests.
+Deployable workflow automation platform for AI and operations workloads. It executes dependency-aware task DAGs, assigns tasks to agents, returns run metadata, and stores workflow run events for demo and audit workflows.
 
-## Features
+## Core Capabilities
 
 - Workflow and task schema definitions
 - Dependency-aware DAG execution
 - Specialized agent registry
-- Run status tracking
-- FastAPI orchestration API
+- Workflow run IDs for traceability
+- Task-level duration and dependency metadata
+- Run-level total duration, status, environment, and orchestrator version
+- JSONL workflow run event stream for local audit/demo mode
+- FastAPI `/workflows/run` API
 - CLI demo and workflow execution commands
-- JSON workflow example
+- Runtime configuration through environment variables
 - Docker and Docker Compose deployment
 - GitHub Actions CI
-- Pytest test suite
-- Architecture and deployment documentation
+- Pytest coverage
+- Operations runbook and architecture decision record
 
 ## Quickstart
 
@@ -40,14 +43,24 @@ curl -X POST http://localhost:8000/workflows/run \
 docker-compose up --build
 ```
 
-## Docs
+## Runtime Configuration
+
+See `.env.example` for environment, orchestrator version, run store path, task timeout, and workflow size settings.
+
+## Documentation
 
 - `ARCHITECTURE.md`
 - `DEPLOYMENT.md`
+- `OPERATIONS.md`
+- `docs/adr-001-workflow-run-service.md`
 - `sample_workflow.json`
 
-## Portfolio Highlights
+## Production Roadmap
 
-- Demonstrates autonomous workflow orchestration and production API design
-- Useful for agent systems, AI automation, ETL pipelines, and business process automation
-- Strong foundation for queues, retries, schedules, human approvals, distributed workers, and LangGraph-style orchestration
+- Persistent workflow database
+- Queue-backed distributed workers
+- Retry policies and dead-letter queues
+- Human approval gates
+- Scheduled workflow runs
+- LangGraph or agent framework integration
+- Web dashboard for run history and task timelines
