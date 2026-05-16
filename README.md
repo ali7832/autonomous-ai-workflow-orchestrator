@@ -1,6 +1,6 @@
 # Autonomous AI Workflow Orchestrator
 
-Deployable workflow automation platform for AI and operations workloads. It executes dependency-aware task DAGs, assigns tasks to agents, returns run metadata, and stores workflow run events for demo and audit workflows.
+Deployable workflow automation platform for AI and operations workloads. It executes dependency-aware task DAGs, assigns tasks to agents, returns run metadata, stores workflow run events for demo and audit workflows, and includes a premium React workflow orchestration console.
 
 ## Core Capabilities
 
@@ -18,6 +18,7 @@ Deployable workflow automation platform for AI and operations workloads. It exec
 - GitHub Actions CI
 - Pytest coverage
 - Operations runbook and architecture decision record
+- Multi-page React/Vite workflow orchestration frontend
 
 ## Quickstart
 
@@ -27,6 +28,31 @@ workflowctl demo
 uvicorn workflow_orchestrator.api:app --reload
 pytest -q
 ```
+
+## Frontend FlowPilot AI Dashboard
+
+The `frontend/` directory contains a premium React/Vite command center for agentic workflow automation, approvals, retries, observability, and governance.
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Open `http://localhost:5173`.
+
+Frontend pages:
+
+- Overview: workflow run KPIs, success trends, and failure analytics
+- Workflow Builder: interactive workflow designer with DAG preview
+- Run Console: run summary, execution steps, duration, and recommended action
+- Agent Registry: specialized agent inventory and task ownership
+- Approvals: human approval gates and governance policies
+- Retries: retry controls, failure signals, and dead-letter patterns
+- Audit Logs: workflow run event stream for traceability
+- Analytics: throughput charts and optimization insights
+
+The UI attempts to call `/workflows/run` and falls back to demo orchestration intelligence when the backend is offline.
 
 ## API
 
