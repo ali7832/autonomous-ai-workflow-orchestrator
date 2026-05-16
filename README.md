@@ -2,6 +2,12 @@
 
 Deployable workflow automation platform for AI and operations workloads. It executes dependency-aware task DAGs, assigns tasks to agents, returns run metadata, stores workflow run events for demo and audit workflows, and includes a premium React workflow orchestration console.
 
+## Product Demo Video
+
+
+https://github.com/user-attachments/assets/31bab42a-6a0e-4c64-b30b-2ae669f34045
+
+
 ## Core Capabilities
 
 - Workflow and task schema definitions
